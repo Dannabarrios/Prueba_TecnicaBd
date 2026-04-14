@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-extensions
+      author: andres
+      changes:
+        - sqlFile:
+            path: 00_extensions/001_extensions.sql
+            relativeToChangelogFile: true
+            
