@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-aeropuerto-tables
+      author: dannabarrios
+      changes:
+        - sqlFile:
+            path: 03_tables/001_tables_aeropuerto.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 002-aeropuerto-indexes
+      author: dannabarrios
+      changes:
+        - sqlFile:
+            path: 09_indixes/001_indixes_aeropuerto.sql
+            relativeToChangelogFile: true

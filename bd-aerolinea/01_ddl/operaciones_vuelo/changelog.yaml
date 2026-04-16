@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-operaciones-vuelo-tables
+      author: dannabarrios
+      changes:
+        - sqlFile:
+            path: 03_tables/001_tables_operaciones_vuelo.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 002-operaciones-vuelo-indexes
+      author: dannabarrios
+      changes:
+        - sqlFile:
+            path: 09_indixes/001_indixes_operaciones_vuelo.sql
+            relativeToChangelogFile: true

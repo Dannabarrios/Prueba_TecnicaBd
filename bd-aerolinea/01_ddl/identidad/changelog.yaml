@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-identidad-tables
+      author: dannabarrios
+      changes:
+        - sqlFile:
+            path: 03_tables/001_tables_identidad.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 002-identidad-indexes
+      author: dannabarrios
+      changes:
+        - sqlFile:
+            path: 09_indixes/001_indixes_identidad.sql
+            relativeToChangelogFile: true

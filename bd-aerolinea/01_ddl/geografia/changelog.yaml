@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 001-geografia-tables
-      author: andres
+      author: dannabarrios
       changes:
         - sqlFile:
             path: 03_tables/001_tables_geografia.sql
@@ -9,8 +9,8 @@ databaseChangeLog:
 
   - changeSet:
       id: 002-geografia-indexes
-      author: andres
+      author: dannabarrios
       changes:
         - sqlFile:
-            path: 09_indexes/001_indexes_geografia.sql
+            path: 09_indixes/001_indixes_geografia.sql
             relativeToChangelogFile: true

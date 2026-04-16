@@ -1,0 +1,2 @@
+-- INDEXES: aerolinea
+-- (airline uses unique constraints as natural indexes)
