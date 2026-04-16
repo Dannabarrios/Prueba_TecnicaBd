@@ -29,6 +29,10 @@ El archivo SQL incluido corresponde al modelo entregado como insumo en la prueba
 2. Ejecutar migraciones:
    docker-compose run liquibase update
 
+## Gestión del Proyecto
+
+[Backlog](https://trello.com/invite/b/69de4e133127b35dba0b03c5/ATTIddcb6e70c548589e479a8a45d48b87e350ACC405/bdaerolinea)
+
 ## Autor
 
 Danna Barrios
