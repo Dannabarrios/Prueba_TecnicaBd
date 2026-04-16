@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-clientes-tables
+      author: andres
+      changes:
+        - sqlFile:
+            path: 03_tables/001_tables_clientes.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 002-clientes-indexes
+      author: andres
+      changes:
+        - sqlFile:
+            path: 09_indexes/001_indexes_clientes.sql
+            relativeToChangelogFile: true

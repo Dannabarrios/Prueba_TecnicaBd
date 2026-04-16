@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: sga_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aerolinea_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d aerolinea_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  liquibase:
+    image: liquibase/liquibase:4.27
+    container_name: sga_liquibase
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - .:/liquibase/changelog
+    working_dir: /liquibase/changelog
+    command: >
+      --url=jdbc:postgresql://postgres:5432/aerolinea_db
+      --username=postgres
+      --password=postgres
+      --changeLogFile=changelog-master.yaml
+      update
+
+volumes:
+  postgres_data:

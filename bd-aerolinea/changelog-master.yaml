@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - include:
+      file: 01_ddl/changelog.yaml
+  - include:
+      file: 01_ddl/geografia/changelog.yaml
+  - include:
+      file: 01_ddl/aerolinea/changelog.yaml
+  - include:
+      file: 01_ddl/identidad/changelog.yaml
+  - include:
+      file: 01_ddl/seguridad/changelog.yaml
+  - include:
+      file: 01_ddl/clientes/changelog.yaml
+  - include:
+      file: 01_ddl/aeropuerto/changelog.yaml
+  - include:
+      file: 01_ddl/aeronaves/changelog.yaml
+  - include:
+      file: 01_ddl/operaciones_vuelo/changelog.yaml
+  - include:
+      file: 01_ddl/ventas/changelog.yaml
+  - include:
+      file: 01_ddl/abordaje/changelog.yaml
+  - include:
+      file: 01_ddl/pagos/changelog.yaml
+  - include:
+      file: 01_ddl/facturacion/changelog.yaml

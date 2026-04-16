@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-geografia-tables
+      author: andres
+      changes:
+        - sqlFile:
+            path: 03_tables/001_tables_geografia.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 002-geografia-indexes
+      author: andres
+      changes:
+        - sqlFile:
+            path: 09_indexes/001_indexes_geografia.sql
+            relativeToChangelogFile: true
