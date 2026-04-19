@@ -1,0 +1,48 @@
+name: CI - Liquibase PostgreSQL
+
+on:
+  push:
+    branches: [develop, qa, main]
+  pull_request:
+    branches: [develop, qa, main]
+
+jobs:
+  liquibase-validate:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: aerolinea_db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Correr Liquibase
+        uses: liquibase/liquibase-github-action@v7
+        with:
+          operation: update
+          classpath: .
+          changeLogFile: changelog-master.yaml
+          username: postgres
+          password: postgres
+          url: jdbc:postgresql://localhost:5432/aerolinea_db
+
+      - name: Verificar tablas creadas
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres \
+          -d aerolinea_db -c \
+          "SELECT count(*) as total_tablas 
+           FROM information_schema.tables 
+           WHERE table_schema = 'public';"

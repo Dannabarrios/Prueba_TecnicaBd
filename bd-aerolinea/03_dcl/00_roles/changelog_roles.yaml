@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-roles-db
+      author: dannabarrios
+      changes:
+        - sqlFile:
+            path: 03_dcl/00_roles/001_roles.sql
+            relativeToChangelogFile: false
