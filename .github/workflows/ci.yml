@@ -33,7 +33,8 @@ jobs:
         run: |
           docker run --rm \
             --network host \
-            -v ${{ github.workspace }}/bd-aerolinea:/liquibase/changelog \
+            -v ${{ github.workspace }}/bd-aerolinea:/liquibase/changelog:ro \
+            -w /liquibase/changelog \
             liquibase/liquibase:4.27 \
             --url=jdbc:postgresql://localhost:5432/aerolinea_db \
             --username=postgres \
